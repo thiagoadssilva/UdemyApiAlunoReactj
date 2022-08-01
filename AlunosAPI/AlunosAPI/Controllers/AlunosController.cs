@@ -1,4 +1,5 @@
-﻿using AlunosAPI.Services;
+﻿using AlunosAPI.Models;
+using AlunosAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,20 @@ namespace AlunosAPI.Controllers
         public AlunosController(IAlunoService alunoService)
         {
             _alunoService = alunoService;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IAsyncEnumerable<Aluno>>> GetAluno() 
+        {
+            try
+            {
+                var alunos = await _alunoService.GetAlunos();
+                return Ok(alunos);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter alunos");
+            }
         }
     }
 }

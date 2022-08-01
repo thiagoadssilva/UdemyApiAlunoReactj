@@ -1,4 +1,5 @@
 using AlunosAPI.Context;
+using AlunosAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection));
 });
 /*Criando o contexto para o banco de dados*/
+
+builder.Services.AddScoped<IAlunoService, AlunosService>(); 
 
 var app = builder.Build();
 
