@@ -43,7 +43,7 @@ namespace AlunosAPI.Controllers
                 return BadRequest(ModelState);
             }
         }
-
+        [HttpPost("LoginUser")]
         public async Task<ActionResult<UserToken>> Login([FromBody] LoginModel userInfo)
         {
             var result = await _authentication.Authenticate(userInfo.Email, userInfo.Password);
