@@ -1,10 +1,12 @@
 ﻿using AlunosAPI.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AlunosAPI.Context
 {   
     // Classe responsável por fazer a ligação entre as classes e o banco de dados
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -27,6 +29,7 @@ namespace AlunosAPI.Context
                     Idade = 4
                 }
             );
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

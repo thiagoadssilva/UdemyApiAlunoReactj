@@ -4,6 +4,7 @@ namespace AlunosAPI.Models
 {
     public class Aluno
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         [StringLength(80)]

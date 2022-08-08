@@ -1,5 +1,7 @@
 ﻿using AlunosAPI.Models;
 using AlunosAPI.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +9,7 @@ namespace AlunosAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class AlunosController : ControllerBase
     {
         private IAlunoService _alunoService;
@@ -87,7 +90,7 @@ namespace AlunosAPI.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("{id:int}")]
         public async Task<ActionResult> Edit(int id, [FromBody] Aluno aluno)
         {
             try
