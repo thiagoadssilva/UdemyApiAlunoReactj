@@ -40,7 +40,7 @@ namespace AlunosAPI.Controllers
             else
             {
                 ModelState.AddModelError("CreateUser", "Registro inválido");
-                return BadRequest(ModelState);
+                    return BadRequest(ModelState);
             }
         }
         [HttpPost("LoginUser")]
