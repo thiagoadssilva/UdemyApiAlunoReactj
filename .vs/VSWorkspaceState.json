@@ -3,9 +3,12 @@
     "",
     "\\AlunosAPI",
     "\\AlunosAPI\\AlunosAPI",
+    "\\AlunosAPI\\AlunosAPI\\Controllers",
     "\\AlunosAPI\\AlunosAPI\\Migrations",
-    "\\AlunosAPI\\AlunosAPI\\Properties"
+    "\\AlunosAPI\\AlunosAPI\\Properties",
+    "\\AlunosAPI\\AlunosAPI\\Services",
+    "\\AlunosAPI\\AlunosAPI\\ViewModels"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\AlunosAPI\\AlunosAPI\\Controllers\\AccountController.cs",
   "PreviewInSolutionExplorer": false
 }
